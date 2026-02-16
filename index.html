@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
-=======
->>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +8,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<<<<<<< HEAD
 
-=======
->>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
 <body>
 
     <!-- Navigation -->
@@ -27,11 +22,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#impact">Impact</a></li>
                 <li><a href="#contact">Contact</a></li>
-<<<<<<< HEAD
                 <li><a href="login.html" id="login-nav-link" class="btn-nav">Login</a></li>
-=======
-                <li><a href="#donate" class="btn-nav">Donate Food</a></li>
->>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -42,13 +33,15 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="overlay"></div>
-        <div class="hero-content">
+        <div class="hero-content fade-in">
             <h1>Saving Food, Saving Lives</h1>
             <p>Join our mission to reduce food waste and feed those in need.</p>
             <div class="hero-buttons">
-                <a href="#donate" class="btn btn-primary">Donate Food</a>
-                <a href="#volunteer" class="btn btn-secondary">Become Volunteer</a>
-                <a href="#request" class="btn btn-outline">Request Food</a>
+                <a href="#donate" class="btn btn-primary"><i class="fas fa-hand-holding-heart"></i> Donate Food</a>
+                <a href="#volunteer" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Become Volunteer</a>
+                <a href="#ngo-register" class="btn btn-outline"
+                    style="border-color: var(--secondary-color); color: var(--secondary-color);"><i
+                        class="fas fa-building"></i> Partner NGO</a>
             </div>
         </div>
     </section>
@@ -61,32 +54,20 @@
                 <div class="about-card">
                     <i class="fas fa-trash-alt icon"></i>
                     <h3>The Problem</h3>
-<<<<<<< HEAD
                     <p>Millions of tons of edible food differ to landfills every year, contributing to greenhouse gases
                         and waste.</p>
-=======
-                    <p>Millions of tons of edible food differ to landfills every year, contributing to greenhouse gases and waste.</p>
->>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
                 </div>
                 <div class="about-card">
                     <i class="fas fa-hands-helping icon"></i>
                     <h3>Our Solution</h3>
-<<<<<<< HEAD
                     <p>We connect food donors with local communities and shelters to ensure surplus food reaches hungry
                         people.</p>
-=======
-                    <p>We connect food donors with local communities and shelters to ensure surplus food reaches hungry people.</p>
->>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
                 </div>
                 <div class="about-card">
                     <i class="fas fa-heart icon"></i>
                     <h3>Your Impact</h3>
-<<<<<<< HEAD
                     <p>By donating or volunteering, you directly contribute to a hunger-free world and a healthier
                         planet.</p>
-=======
-                    <p>By donating or volunteering, you directly contribute to a hunger-free world and a healthier planet.</p>
->>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
                 </div>
             </div>
         </div>
@@ -120,17 +101,12 @@
     </section>
 
     <!-- Forms Section (Donate & Volunteer) -->
+    <!-- Forms Section (Donate) -->
     <section id="donate" class="section">
         <div class="container">
-            <div class="forms-wrapper">
-<<<<<<< HEAD
-
-=======
-                
->>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
-                <!-- Donate Food Form -->
-                <div class="form-container">
-                    <h3>Donate Food</h3>
+            <h2 class="section-title">Make a Donation</h2>
+            <div class="forms-wrapper" style="justify-content: center;">
+                <div class="form-container" style="max-width: 600px;">
                     <form id="donate-form">
                         <div class="form-group">
                             <label for="d-name">Name / Organization</label>
@@ -160,10 +136,16 @@
                         <button type="submit" class="btn btn-primary btn-block">Submit Donation</button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Volunteer Form -->
-                <div id="volunteer" class="form-container">
-                    <h3>Join as Volunteer</h3>
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Join as Volunteer</h2>
+            <div class="forms-wrapper" style="justify-content: center;">
+                <div class="form-container" style="max-width: 600px;">
                     <form id="volunteer-form">
                         <div class="form-group">
                             <label for="v-name">Full Name</label>
@@ -181,10 +163,40 @@
                             <label for="v-city">City</label>
                             <input type="text" id="v-city" required>
                         </div>
-                        <button type="submit" class="btn btn-secondary btn-block">Register Now</button>
+                        <button type="submit" class="btn btn-secondary btn-block">Register Volunteer</button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- NGO Section -->
+    <section id="ngo-register" class="section">
+        <div class="container">
+            <h2 class="section-title">Register as NGO</h2>
+            <div class="forms-wrapper" style="justify-content: center;">
+                <div class="form-container" style="max-width: 600px;">
+                    <form id="ngo-form">
+                        <div class="form-group">
+                            <label for="n-name">Organization Name</label>
+                            <input type="text" id="n-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="n-email">Official Email</label>
+                            <input type="email" id="n-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="n-phone">Contact Phone</label>
+                            <input type="tel" id="n-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="n-address">Headquarters Address</label>
+                            <input type="text" id="n-address" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="background-color: var(--secondary-color);">Register NGO</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -251,6 +263,10 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <div class="footer-content">
+                <h3 class="logo"><i class="fas fa-seedling"></i> Food Rescue</h3>
+                <p>Connecting surplus food to those who need it most.</p>
+            </div>
             <p>&copy; 2026 Food Rescue. All rights reserved.</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -262,9 +278,5 @@
 
     <script src="js/script.js"></script>
 </body>
-<<<<<<< HEAD
 
 </html>
-=======
-</html>
->>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
