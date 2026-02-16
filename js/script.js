@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+<<<<<<< HEAD
 
     // Check Login Status for Navbar
     const loginLink = document.getElementById('login-nav-link');
@@ -9,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
         loginLink.href = 'dashboard.html';
     }
 
+=======
+    
+>>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -33,7 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const updateCount = () => {
                 const target = +counter.getAttribute('data-target');
                 const count = +counter.innerText;
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
                 // Lower inc to slow and higher to slow
                 const inc = target / speed;
 
@@ -54,7 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger animation when Impact section is in view
     let animated = false;
     const impactSection = document.getElementById('impact');
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
     window.addEventListener('scroll', () => {
         if (!animated && window.scrollY + window.innerHeight > impactSection.offsetTop + 100) {
             animateCounters();
@@ -67,7 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> c26d80cb49c7a7f792de985d56ee8a7a518294bd
             // Basic Validation Check (already handled by 'required' attribute, but explicit check good practice)
             let isValid = true;
             const inputs = form.querySelectorAll('input, select, textarea');
