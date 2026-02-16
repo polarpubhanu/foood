@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Food Rescue</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fas fa-seedling"></i> Food Rescue</a>
+            <ul class="nav-links">
+                <li><span>Welcome, <b id="user-role-display">User</b></span></li>
+                <li><a href="#" id="logout-btn" class="btn-nav" style="background-color: #e74c3c;">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container section">
+
+        <!-- DONOR DASHBOARD -->
+        <div id="dashboard-donor" class="dashboard-section" style="display: none;">
+            <h2 class="section-title">Donor Dashboard</h2>
+
+            <div class="charts-row" style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
+                <div class="chart-container"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <canvas id="donorDonationChart"></canvas>
+                </div>
+                <div class="chart-container"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <canvas id="donorImpactChart"></canvas>
+                </div>
+            </div>
+
+            <div class="impact-grid" style="margin-bottom: 30px;">
+                <div class="impact-item" style="color: #333;">
+                    <div class="counter">12</div>
+                    <p>Donations Made</p>
+                </div>
+                <div class="impact-item" style="color: #333;">
+                    <div class="counter">450</div>
+                    <p>People Fed</p>
+                </div>
+            </div>
+
+            <div class="forms-wrapper">
+                <div class="form-container">
+                    <h3><i class="fas fa-plus-circle"></i> Make New Donation</h3>
+                    <form class="dashboard-form">
+                        <div class="form-group">
+                            <label>Food Type</label>
+                            <select>
+                                <option>Cooked Meals</option>
+                                <option>Raw Ingredients</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity (kg)</label>
+                            <input type="number">
+                        </div>
+                        <button class="btn btn-primary btn-block">Schedule Pickup</button>
+                    </form>
+                </div>
+                <div class="form-container">
+                    <h3><i class="fas fa-history"></i> Recent Donations</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                            <strong>Rice & Curry</strong> <br> <span style="font-size: 0.9em; color: #777;">Yesterday -
+                                Picked up</span>
+                        </li>
+                        <li style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                            <strong>Bread Loaves</strong> <br> <span style="font-size: 0.9em; color: #777;">Last Week -
+                                Delivered</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- NGO DASHBOARD -->
+        <div id="dashboard-ngo" class="dashboard-section" style="display: none;">
+            <h2 class="section-title">NGO Dashboard</h2>
+            <div class="charts-row" style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
+                <div class="chart-container"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <canvas id="ngoFlowChart"></canvas>
+                </div>
+                <div class="chart-container"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <canvas id="ngoInventoryChart"></canvas>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step">
+                    <i class="fas fa-bell" style="color: #e67e22;"></i>
+                    <h3>New Alerts</h3>
+                    <p>5 donations available in your area.</p>
+                    <button class="btn btn-primary">View Map</button>
+                </div>
+                <div class="step">
+                    <i class="fas fa-box-open" style="color: #27ae60;"></i>
+                    <h3>Current Stock</h3>
+                    <p>Rice: 50kg | Milk: 20L</p>
+                    <button class="btn btn-secondary">Update Inventory</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VOLUNTEER DASHBOARD -->
+        <div id="dashboard-volunteer" class="dashboard-section" style="display: none;">
+            <h2 class="section-title">Volunteer Dashboard</h2>
+            <div class="chart-container"
+                style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px;">
+                <canvas id="volunteerActivityChart" style="max-height: 300px;"></canvas>
+            </div>
+            <div class="forms-wrapper">
+                <div class="form-container">
+                    <h3><i class="fas fa-map-marked-alt"></i> Available Pickups</h3>
+                    <div style="background: #f0f0f0; padding: 15px; border-radius: 5px; margin-bottom: 10px;">
+                        <strong>Downtown Bakery</strong>
+                        <p>5kg Bread - Pickup by 5:00 PM</p>
+                        <button class="btn btn-primary btn-sm">Accept Task</button>
+                    </div>
+                    <div style="background: #f0f0f0; padding: 15px; border-radius: 5px;">
+                        <strong>City Hotel</strong>
+                        <p>20 Meals - Pickup by 6:00 PM</p>
+                        <button class="btn btn-primary btn-sm">Accept Task</button>
+                    </div>
+                </div>
+                <div class="impact-item" style="color: #333; background: white; padding: 20px; border-radius: 10px;">
+                    <h3>Your Impact</h3>
+                    <div class="counter">85</div>
+                    <p>Deliveries Completed</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECIPIENT DASHBOARD -->
+        <div id="dashboard-recipient" class="dashboard-section" style="display: none;">
+            <h2 class="section-title">Recipient Dashboard</h2>
+            <div class="chart-container"
+                style="max-width: 400px; margin: 0 auto 30px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <canvas id="recipientStatusChart"></canvas>
+            </div>
+            <div class="forms-wrapper">
+                <div class="form-container">
+                    <h3><i class="fas fa-hand-holding"></i> Request Food</h3>
+                    <form class="dashboard-form">
+                        <div class="form-group">
+                            <label>What do you need?</label>
+                            <input type="text" placeholder="e.g., Rice, Milk">
+                        </div>
+                        <div class="form-group">
+                            <label>Urgency</label>
+                            <select>
+                                <option>Immediate</option>
+                                <option>Tomorrow</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary btn-block">Submit Request</button>
+                    </form>
+                </div>
+                <div class="step" style="background: white; padding: 20px; border-radius: 10px;">
+                    <i class="fas fa-map-marker-alt" style="color: #e74c3c; font-size: 2rem; margin-bottom: 10px;"></i>
+                    <h3>Nearby Food Centers</h3>
+                    <p>Find free food distribution points near you.</p>
+                    <button class="btn btn-secondary">Locate</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Inline logic for dashboard handling
+        // 1. Check Login
+        const storedUser = localStorage.getItem('currentUser');
+        if (!storedUser) {
+            window.location.href = 'login.html';
+        } else {
+            const user = JSON.parse(storedUser);
+            const role = user.role;
+
+            // 2. Update Greeting
+            const roleCapitalized = role.charAt(0).toUpperCase() + role.slice(1);
+            document.getElementById('user-role-display').textContent = roleCapitalized;
+
+            // 3. Show Relevant Section
+            const sections = document.querySelectorAll('.dashboard-section');
+            sections.forEach(sec => sec.style.display = 'none');
+
+            const targetSection = document.getElementById(`dashboard-${role}`);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+        }
+
+        // 4. Logout
+        document.getElementById('logout-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        });
+
+        // 5. Form simulation
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Action completed successfully!');
+                form.reset();
+            });
+        });
+
+        // --- CHART INITIALIZATION ---
+        // Helper to delay chart render until visible/role loaded
+        const initCharts = (role) => {
+            if (role === 'donor') {
+                new Chart(document.getElementById('donorDonationChart'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                        datasets: [{
+                            label: 'Donations (kg)',
+                            data: [12, 19, 3, 5, 2, 3],
+                            borderColor: '#2ecc71',
+                            tension: 0.1
+                        }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: 'Donation History' } } }
+                });
+                new Chart(document.getElementById('donorImpactChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Cooked Meals', 'Raw Ingredients', 'Packaged'],
+                        datasets: [{
+                            data: [50, 30, 20],
+                            backgroundColor: ['#27ae60', '#f1c40f', '#e67e22']
+                        }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: 'Food Types Donated' } } }
+                });
+            } else if (role === 'ngo') {
+                new Chart(document.getElementById('ngoFlowChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [
+                            { label: 'Received (kg)', data: [50, 60, 45, 70, 55, 80, 40], backgroundColor: '#2ecc71' },
+                            { label: 'Distributed (kg)', data: [45, 55, 40, 65, 50, 75, 35], backgroundColor: '#3498db' }
+                        ]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: 'Weekly Inflow vs Outflow' } } }
+                });
+                new Chart(document.getElementById('ngoInventoryChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: ['Rice', 'Wheat', 'Oil', 'Vegetables', 'Milk'],
+                        datasets: [{
+                            data: [300, 150, 50, 80, 40],
+                            backgroundColor: ['#ecf0f1', '#f39c12', '#f1c40f', '#27ae60', '#bdc3c7']
+                        }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: 'Current Inventory' } } }
+                });
+            } else if (role === 'volunteer') {
+                new Chart(document.getElementById('volunteerActivityChart'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                        datasets: [{
+                            label: 'Deliveries Completed',
+                            data: [5, 12, 8, 15], // Dummy data
+                            borderColor: '#e67e22',
+                            tension: 0.4,
+                            fill: true,
+                            backgroundColor: 'rgba(230, 126, 34, 0.2)'
+                        }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: 'Monthly Activity' } } }
+                });
+            } else if (role === 'recipient') {
+                new Chart(document.getElementById('recipientStatusChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Received', 'Pending', 'Scheduled'],
+                        datasets: [{
+                            data: [12, 3, 2],
+                            backgroundColor: ['#2ecc71', '#e74c3c', '#f1c40f']
+                        }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: 'Request Status' } } }
+                });
+            }
+        };
+
+        if (storedUser) {
+            initCharts(JSON.parse(storedUser).role);
+        }
+    </script>
+</body>
+
+</html>
