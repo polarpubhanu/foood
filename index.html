@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Rescue - Saving Food, Saving Lives</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo"><i class="fas fa-seedling"></i> Food Rescue</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#donate" class="btn-nav">Donate Food</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Saving Food, Saving Lives</h1>
+            <p>Join our mission to reduce food waste and feed those in need.</p>
+            <div class="hero-buttons">
+                <a href="#donate" class="btn btn-primary">Donate Food</a>
+                <a href="#volunteer" class="btn btn-secondary">Become Volunteer</a>
+                <a href="#request" class="btn btn-outline">Request Food</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Our Mission</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-trash-alt icon"></i>
+                    <h3>The Problem</h3>
+                    <p>Millions of tons of edible food differ to landfills every year, contributing to greenhouse gases and waste.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-hands-helping icon"></i>
+                    <h3>Our Solution</h3>
+                    <p>We connect food donors with local communities and shelters to ensure surplus food reaches hungry people.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-heart icon"></i>
+                    <h3>Your Impact</h3>
+                    <p>By donating or volunteering, you directly contribute to a hunger-free world and a healthier planet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-utensils"></i>
+                    <h3>Donation</h3>
+                    <p>Donors list surplus food on our platform.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-truck"></i>
+                    <h3>Collection</h3>
+                    <p>Volunteers pick up the food from the donor's location.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-smile"></i>
+                    <h3>Distribution</h3>
+                    <p>Food is delivered to shelters and people in need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forms Section (Donate & Volunteer) -->
+    <section id="donate" class="section">
+        <div class="container">
+            <div class="forms-wrapper">
+                
+                <!-- Donate Food Form -->
+                <div class="form-container">
+                    <h3>Donate Food</h3>
+                    <form id="donate-form">
+                        <div class="form-group">
+                            <label for="d-name">Name / Organization</label>
+                            <input type="text" id="d-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-location">Location</label>
+                            <input type="text" id="d-location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-food-type">Food Type</label>
+                            <select id="d-food-type" required>
+                                <option value="">Select Type</option>
+                                <option value="cooked">Cooked Meal</option>
+                                <option value="raw">Raw Ingredients</option>
+                                <option value="packaged">Packaged Food</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-quantity">Quantity (servings/kg)</label>
+                            <input type="number" id="d-quantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-time">Pickup Time</label>
+                            <input type="datetime-local" id="d-time" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit Donation</button>
+                    </form>
+                </div>
+
+                <!-- Volunteer Form -->
+                <div id="volunteer" class="form-container">
+                    <h3>Join as Volunteer</h3>
+                    <form id="volunteer-form">
+                        <div class="form-group">
+                            <label for="v-name">Full Name</label>
+                            <input type="text" id="v-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="v-email">Email</label>
+                            <input type="email" id="v-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="v-phone">Phone</label>
+                            <input type="tel" id="v-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="v-city">City</label>
+                            <input type="text" id="v-city" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-block">Register Now</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section bg-green text-white">
+        <div class="container">
+            <h2 class="section-title text-white">Our Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <i class="fas fa-weight-hanging fa-3x"></i>
+                    <div class="counter" data-target="15000">0</div>
+                    <p>kg Food Saved</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-users fa-3x"></i>
+                    <div class="counter" data-target="45000">0</div>
+                    <p>Meals Served</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-hand-holding-heart fa-3x"></i>
+                    <div class="counter" data-target="1200">0</div>
+                    <p>Volunteers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Green Street, Eco City, Earth</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>hello@foodrescue.org</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 234 567 8900</p>
+                    </div>
+                </div>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Food Rescue. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
